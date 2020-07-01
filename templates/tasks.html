@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<h2> Tasks </h2>
+
+	{% if tasks %}
+		<div id="tasks">
+			{% for task in tasks %}
+				<div class="task" id="{{ task.id }}">
+
+					<h3 class="taskTitle"> {{ task.name | safe }} <span>{{ task.points }}</span></h3>
+
+					<form action="{{ url_for('tasksPage') }}" id="taskBody" method="post">
+						<p>
+							{{ task.message | safe }}
+						</p>
+						{% if task.downloadableFiles %}
+							<ul>
+								{% for downloadableFile in task.downloadableFiles %}
+									<li> <a href="{{ url_for('static', filename='downloads/' + downloadableFile )}}"> {{ downloadableFile }}</a></li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+
+						<input type="hidden" name="taskID" value="{{ task.id }}">
+						<input type="text" name="answer">
+						<input type="submit" value="Submit" onclick="return checkAnswer({{task.id}})">
+					</form>
+				</div>
+
+			{% endfor %}
+		</div>
+	{% endif %}
+
+
+	<script>
+		var solvedTasks = "{{session.solvedTasks}}".split(" ").slice(1);
+		
+		solvedTasks.forEach( function(taskID, index, array){
+			
+			correctTask( taskID );
+			$("#" + taskID + " form").hide();
+		} );
+	</script>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> {{ appTitle }} </title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheet.css')}}">
+		<script src="{{ url_for('static', filename='jquery.js' ) }}"></script>
+		<script src="{{ url_for('static', filename='notify.js' ) }}"></script>
+		<script src="{{ url_for('static', filename='control.js' ) }}"></script>
+	</head>
+
+	<body>
+		<div id="page">
+			<img src="static/downloads/logov2.png" class="centerTitle">
+			
+			<ul class="navigation">
+				{% if session.loggedIn %}
+					{% for name, url in appNavigationLoggedIn.items() %}
+						 <a href="{{ url }}"> <li> {{ name }} </li> </a> 
+					{% endfor %}
+				{% else %}
+					{% for name, url in appNavigationLoggedOut.items() %}
+						 <a href="{{ url }}"> <li> {{ name }} </li> </a> 
+					{% endfor %}
+				{% endif %}
+			</ul>
+
+			{% if session.loggedIn %}
+				<div class="status">
+					{{ session.username }} <strong>|</strong> <span id="totalPoints">{{ session.totalPoints }} pts </span>
+				</div>
+			{% endif %}
+
+			<div class="success">{% if success %}{{ success }}{% endif %}</div>
+			<div class="error">{% if error %}{{ error }}{% endif %}</div> 
+			<div class="message">{% if message %}{{ message }}{% endif %}</div> 
+
+
+			{% for message in get_flashed_messages() %}
+				<div class="success"> {{ message }} </div>
+			{% endfor %}
+
+			<div id="content">
+				
+				{% block content %}
+				
+				{% endblock %}
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,145 @@
+{
+	"appTitle" : "SwanCTF - Linux Basic",
+
+	"appNavigationLoggedOut": {		
+		"About": "/about",
+		"Scoreboard": "/scoreboard",
+		"Login": "/login",
+		"Register": "/register" },
+
+	"appNavigationLoggedIn": {
+
+		"Tasks": "/tasks",
+		"About": "/about",
+		"Scoreboard": "/scoreboard",
+		"Log Out": "/logout"
+	},
+
+	"appAbout": "<p>SwanCTF is an information security competition targeted at University students.</p>
+		<p>
+			SwanCTF was designed with the average university student in mind so don't worry if you've got no programming experience many of the challenges don't require it, all that's needed are problem-solving skills and creative thinking.
+		</p>
+	",
+
+	"tasks": [
+
+		{ 
+			"name": "0. Getting Started!",
+
+			"message": "
+			<p> Run the SWANCTF program to get started! </p>
+
+			<p>
+				When you are inside the repository and in the `swanctf` directory,
+				 simply run the command <code>sudo ./swanctf</code>
+			</p>
+			",
+
+			"possibleAnswers": [ "SWANCTF{the_period_is_a_symbol_for_the_current_directory}" ],
+			"downloadableFiles": [],
+			"points" : 0
+		},
+		{ 
+
+			"name": "1. Growing Roots",
+
+			"message": "
+				<p> There's a special file in the root directory. What does it contain? </p>
+			",
+
+			"possibleAnswers": [ "SWANCTF{the_start_of_the_linux_filesystem_is_a_forward_slash}" ],
+			"points" : 1
+		},
+		{ 
+
+			"name": "2. Stuck in a Bin",
+
+			"message": "
+				<p> Find one file in the <code>/usr/bin/</code> directory. </p>
+				<p><small> <b>Hint:</b> You may need to narrow your scope. What was the name of 
+				the file in the previous task? </small></p>
+			",
+
+			"possibleAnswers": [ "SWANCTF{/bin_and_/usr/bin/_is_where_command_line_programs_are_stored}" ],
+			"points" : 1
+		},
+		{ 
+
+			"name": "3. Hiding at Home",
+
+			"message": "
+
+				<p>
+					I know there is some file in your home directory... but <i>where?!</i>
+				</p>
+			",
+
+			"possibleAnswers": [ "SWANCTF{hidden_files_in_linux_start_with_a_period}" ],
+			"points" : 1
+		},
+
+		{ 
+			"name": "4. Temporary Contemporary",
+
+			"message": "
+
+				<p>
+					There is a file in the temporary folder... 
+				</p>
+				<p>
+					But not <i>just</i> the temporary folder.
+				</p>
+
+			",
+
+			"possibleAnswers": [ "SWANCTF{/tmp_is_where_temporary_files_and_folders_go}" ],
+			"points" : 1
+		},
+		{ 
+			"name": "5. I lost my file!",
+
+			"message": "
+
+				<p> Help! I lost my file! I know I left it somewhere, though! </p>
+				<p> Oh! I do remember that it was with a lot of <i>application settings folders, 
+				configuration files, passwords, <b>etc.</b>.</i></p>
+			",
+
+			"possibleAnswers": [ "SWANCTF{/etc_is_where_configs_and_user_passwords_are_stored}" ],
+			"points" : 1
+		},
+		{ 
+
+			"name": "6. Parent Directory",
+
+			"message": "
+				<p>
+					My file went down this path, but it turns out <b>it was just one step behind.</b>
+				</p>
+				<p>Start in this directory: <code><b>/tmp/first_steps/</b></code></p>
+			",
+
+			"possibleAnswers": [ "SWANCTF{.._is_the_fastest_way_to_move}" ],
+			"points" : 10
+		},
+		{ 
+
+			"name": "7. The Labyrinth",
+
+			"message": "
+				<p>
+					I lost my file... and now there is no way I'll find it!
+				</p>
+				<p>Start in this directory: <code><b>/tmp/labyrinth/</b></code></p>
+
+				<p><small><b>Hint:</b> if you want to work <i>smarter</i> and not harder, 
+				check out the man page for <code>ls</code> and see how you can go through 
+				subdirectories with just one command.</small></p>
+			",
+
+			"possibleAnswers": [ "SWANCTF{ls_-R_makes_for_awesome_recursion}" ],
+			"points" : 10
+		}
+		
+	]
+}

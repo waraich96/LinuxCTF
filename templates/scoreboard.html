@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<h2> The Scoreboard </h2>
+	
+	<table id="scoreboard">
+		<tr>
+			<th> Position </th>
+			<th> Name </th>
+			<th> Points </th>
+		</tr>
+		{% for user in users  %}
+			<tr>
+				<td> &nbsp; &nbsp;{{ loop.index }} </td>
+				<td> {{ user["username"] }} </td>
+				<td> &nbsp; &nbsp; {{ user[ "totalPoints" ] }} </td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}
