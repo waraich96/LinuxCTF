@@ -37,3 +37,10 @@ The Client (End-User)
 The client (the student, in this case) should have access to the repository but they should just run the initial `flags` file to set up the game. This is a simple [`bash`][bash] script that creates all the `FINDME.txt` files with the flags to submit (they are in plain text, but I don't expect any student to try and cheat and look at the flags in the script).
 
 They should then be able to navigate to the web server and start to submit the flags, playing the Linux CTF!
+
+
+-----------------
+Poster for the SwanCTF Event
+-----------------
+![CTF Poster](https://user-images.githubusercontent.com/8989618/165846854-f674ded8-3c4e-4236-8b59-4fb01d22606b.png)
+-----------------
